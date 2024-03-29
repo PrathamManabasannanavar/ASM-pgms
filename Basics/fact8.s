@@ -1,3 +1,4 @@
+;asm pgm to compute factorial of the given no 
 AREA fact8, CODE, READONLY
 
 ; Load addresses of RESULT and NUM1 into registers
