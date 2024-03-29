@@ -26,7 +26,7 @@ loop:
     SUBS R4, R4, #01 ; Decrement R4 (number)
     MULS R5, R5, R4  ; Multiply R5 (result) by R4 (decremented number)
     CMP R4, #02       ; Check if R4 (number) is greater than 2
-    BGT loop          ; If greater than 2, branch back to loop
+    BEQ loop          ; If greater than 2, branch back to loop
 
 ; Store the final result (factorial) in RESULT memory location
 label2:
