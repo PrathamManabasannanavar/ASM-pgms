@@ -6,13 +6,13 @@ AREA greaterELE, CODE, READONLY
     LDR R2, [R0]
     MOV R4, #04
     
-LOOP    
+LOOP2    
     LDR R3, [RO, #04]!
     SUBS R3, R2, #01
     BMI NEGATIVE
 LOOP1
     SUBS R5, R5, #01
-    BNE LOOP
+    BNE LOOP2
     STR R3, [R0]
     B PgmEnd
     
