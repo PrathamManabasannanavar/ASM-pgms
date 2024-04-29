@@ -1,5 +1,5 @@
 ; asm to find the largest element in the array
-AREA greaterELE, COSE, READONLY
+AREA greaterELE, CODE, READONLY
     
     LDR R0, =LARG
     LDR R1, =ARR
