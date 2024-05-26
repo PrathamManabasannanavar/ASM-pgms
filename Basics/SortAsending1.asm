@@ -1,3 +1,4 @@
+;asm to sort the elements in the ascending order    
     AREA SortAscending, CODE, READWRITE
     LDR R0, =ARR
     MOV R3, #05 ;OUTER LOOP
