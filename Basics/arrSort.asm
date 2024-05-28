@@ -1,0 +1,48 @@
+;asm to sort the elements of the array
+
+	AREA arrSort, CODE, READONLY
+	LDR R0, =ARR
+	MOV R2, #04
+	SUBS R1, R2, #01	;because starting from 0
+	MOV R3, #00	;OUTER LOOP COUNT
+	MOV R4, #00	;INNER LOOP COUNT
+	MOV R5, R0
+	ADDS R6, R5, #04
+	
+LOOP1
+	CMP R3, R2
+	BEQ endOfPgm
+	MOV R4, #00
+LOOP2
+	CMP R4, R1
+	BEQ NEXT
+	
+	LDR R7, [R5]
+	LDR R8, [R6]
+	
+	CMP R7, R8
+	BGT SWAPELE
+NEXT2	
+	ADDS R5, R5, #04
+	ADDS R6, R6, #04
+	
+	ADDS R4, R4, #01
+	B LOOP2
+NEXT
+	ADDS R3, R3, #01
+	MOV R5, R0
+	ADDS R6, R5, #04
+	B LOOP1
+	
+SWAPELE
+	STR R7, [R6]
+	STR R8, [R5]
+	B NEXT2
+	
+endOfPgm
+	NOP
+	NOP
+	
+	AREA data1, DATA, READWRITE
+ARR DCD 0X0
+	END
