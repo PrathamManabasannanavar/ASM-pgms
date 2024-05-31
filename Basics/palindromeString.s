@@ -1,0 +1,23 @@
+	AREA palindromeString, CODE, READONLY
+	LDR R0, =STR
+	MOV R2, #03 ;HELLO -> 0 -3
+	ADDS R1, R0, R2
+LOOP1	
+	LDRB R4, [R0], #01
+	LDRB R5, [R1], #-01
+
+	CMP R4, R5 
+	BNE FALSE
+
+	SUBS R2, R2, #02	
+	BGE LOOP1
+	MOV R9, #01
+	B endOfPgm
+FALSE
+	MOV R9, #-01
+endOfPgm
+	NOP
+	NOP
+	
+STR DCB "OPPO",0	
+	END
