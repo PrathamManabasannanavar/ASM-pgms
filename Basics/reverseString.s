@@ -1,0 +1,23 @@
+	AREA reverseString, CODE, READONLY
+	LDR R0, =STR
+	LDR R1, =REV
+	MOV R2, #04 ;HELLO -> 0 -4 
+	
+	ADDS R1, R1, R2
+LOOP1	
+	LDRB R4, [R0], #01
+	CMP R4, #'!'
+	BEQ endOfPgm
+	
+	STRB R4, [R1]
+	SUBS R1, R1, #01
+	B LOOP1
+endOfPgm	
+	NOP
+	NOP
+	
+STR DCB "HELLO!",0	
+
+	AREA data1, DATA, READWRITE
+REV DCB 0X0
+	END
