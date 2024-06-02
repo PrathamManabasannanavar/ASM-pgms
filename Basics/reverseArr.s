@@ -1,4 +1,4 @@
-
+;asm to reverse an array
 	AREA reverseArr, CODE, READONLY
 	
 	LDR R0, =ARR
