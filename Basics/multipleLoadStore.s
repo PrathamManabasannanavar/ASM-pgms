@@ -1,0 +1,17 @@
+;asm to demonstrate the LDM AND STM
+
+	AREA multipleLoadStore, CODE, READONLY
+	LDR R0, =ARR1
+	LDR R9, =ARR2
+	
+	LDMIA R0, {R1-R4}
+	STMIA R9, {R1-R4}
+	
+	NOP
+	NOP
+	
+ARR1 DCD 0X03, 0X01, 0X02, 0X05
+	
+	AREA data1, DATA, READWRITE
+ARR2 DCD 0X0		
+	END
