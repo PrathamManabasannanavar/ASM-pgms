@@ -1,0 +1,30 @@
+
+	AREA reverseArr, CODE, READONLY
+	
+	LDR R0, =ARR
+	MOV R2, #05 ;4 ELEMENTS
+	SUBS R3, R2, #01; 4 -1
+	
+	MOV R9, #04
+	MULS R8, R9, R3 
+	ADDS R1, R0, R8
+	
+LOOP1
+	LDR R4, [R0]
+	LDR R5, [R1]
+	
+	STR R4, [R1]
+	STR R5, [R0]
+	
+	ADDS R0, R0, #04
+	SUBS R1, R1, #04
+	
+	SUBS R2, R2, #02
+	BGT LOOP1
+	
+	NOP
+	NOP
+	
+	AREA data1, DATA, READWRITE
+ARR DCD 0X0		
+	END
