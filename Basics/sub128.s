@@ -1,5 +1,5 @@
 ;asm to substract the two 128bit nors
-
+;don't why getting the correct answer but carry bit is not reflecting in CPSR
 	AREA sub128, CODE, READONLY
 	MOV R10, #00
 	LDR R0, =L1NUM1
