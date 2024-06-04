@@ -1,0 +1,17 @@
+
+	AREA packUnpack, CODE, READONLY
+	LDR R0, =NUM1
+	LDR R1, [R0]
+	
+	MOV R2, R1, LSR #04
+	MOV R2, R2, LSL #08
+	
+	AND R1, R1, #0X0F
+	ORR R3, R1, R2
+
+	NOP
+	NOP
+	
+	AREA data1, DATA, READWRITE
+NUM1 DCD 0X0		
+	END
