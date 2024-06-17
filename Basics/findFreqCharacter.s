@@ -4,7 +4,7 @@
 	LDR R0, =STR1
 	LDR R1, =RES
 LOOP1	
-	LDRB R2, [R0], #01
+	LDRB R2, [R0], #01	;write LDRB because you should only fetch character not whole string (it default fetches 4 bytes at a time)
 	CMP R2, #"!"
 	BEQ endOfPgm
 	
