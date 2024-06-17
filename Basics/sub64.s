@@ -1,0 +1,37 @@
+;asm to substract two 64 bit numbers
+	AREA sub64, CODE, READONLY
+	
+	LDR R0, =LNUM1
+	LDR R1, =LNUM2
+	
+	LDR R8, =LRES
+	LDR R9, =MRES
+	
+	LDR R2, [R0]
+	LDR R3, [R1]
+	
+	SUBS R4, R2, R3
+	STR R4, [R8]
+	
+	LDR R0, =MNUM1
+	LDR R1, =MNUM2
+	
+	LDR R2, [R0]
+	LDR R3, [R1]
+	
+	SBCS R4, R2, R3
+	STR R4, [R9]
+	
+	NOP
+	NOP
+	
+	AREA data1, DATA, READWRITE
+MNUM1 DCD 0X0
+LNUM1 DCD 0X0
+
+MNUM2 DCD 0X0
+LNUM2 DCD 0X0
+	
+MRES DCD 0X0
+LRES DCD 0X0	
+	END

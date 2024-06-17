@@ -1,0 +1,25 @@
+
+	AREA stringLength, CODE, READONLY
+	LDR R0, =STR1
+	LDR R1, =RES
+	MOV R9, #00
+LOOP1		
+	LDR R3, [R0], #01
+	
+	CMP R3, #'O'
+	BEQ endOfPgm
+	
+	ADDS R9, R9, #01
+	
+	B LOOP1
+	
+endOfPgm
+	STR R9, [R1]
+	NOP
+	NOP
+	
+STR1 DCB "HELLO",0
+	
+	AREA data1, DATA, READWRITE
+RES DCD 0X0		
+	END
