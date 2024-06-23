@@ -1,0 +1,40 @@
+;asm to find the laergest element in the array
+	AREA SecondLargest, CODE, READONLY
+	LDR R0, =ARR
+	LDR R8, =SEC
+	MOV R1, #05
+	MOV R2, #00	;FIRST LARGEST
+	MOV R9, #00	;SECOND LARGEST
+	
+LOOP1	
+	LDR R3, [R0], #04
+	CMP	R3, R2
+	BGT LARGEST
+	
+	CMP R3, R2	;1ST != ELE
+	BNE SECONDLARG
+BACK2	
+	SUBS R1, R1, #01
+	BNE LOOP1
+	STR R9, [R8]
+	B endOfPgm
+
+SECONDLARG
+	CMP R3, R9
+	MOVGTS R9, R3
+	B BACK2
+
+LARGEST
+	MOV R9, R2
+	MOV R2, R3
+	B BACK2
+	
+endOfPgm
+	NOP
+	NOP
+	
+	AREA data1, DATA, READWRITE
+SEC DCD 0X0
+ARR DCD 0X0
+
+	END
