@@ -1,0 +1,27 @@
+;asm to perform divide operation on a number
+
+	AREA divisionNum, CODE, READONLY
+	LDR R0, =NUM1
+	LDR R1, =DIV
+	LDR R9, =RES
+	
+	LDR R2, [R0]
+	LDR R3, [R1]
+	MOV R4, #00	;COUNT = 0
+	
+LOOP1
+	ADDS R4, R4, #01	;COUNT++
+
+	SUBS R2, R2, R3
+	BGT LOOP1
+	
+	SUBLT R4, R4, #01	;CHECK IF THE NO IS NEGATIVE DECR BY 1
+	STR R4, [R9]
+	NOP
+	NOP
+	
+	AREA data1, DATA, READWRITE
+NUM1 DCD 0X0
+DIV DCD 0X0
+RES DCD 0X0	
+	END
